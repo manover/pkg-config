@@ -1,0 +1,35 @@
+Source: pkg-config
+Section: devel
+Priority: optional
+Maintainer: Tollef Fog Heen <tfheen@debian.org>
+Build-Depends: debhelper (>= 9), dh-autoreconf, libglib2.0-dev, libpopt-dev
+Homepage: http://pkg-config.freedesktop.org
+Standards-Version: 3.9.6
+
+Package: pkg-config
+Architecture: any
+Multi-Arch: same
+Depends: pkg-config-bin (= ${binary:Version})
+Description: manage compile and link flags for libraries
+ pkg-config is a system for managing library compile and link flags that 
+ works with automake and autoconf.
+ .
+ Increasingly libraries ship with ".pc" files that allow querying of the
+ compiler and linker flags needed to use them through the pkg-config(1)
+ program.
+
+Package: pkg-config-bin
+Architecture: any
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: pkg-config (<= 0.28-1)
+Description: executable for pkg-config
+ pkg-config is a system for managing library compile and link flags that 
+ works with automake and autoconf.
+ .
+ Increasingly libraries ship with ".pc" files that allow querying of the
+ compiler and linker flags needed to use them through the pkg-config(1)
+ program.
+ .
+ This package contains the actual pkg-config binary. Most users want to
+ install pkg-config.
